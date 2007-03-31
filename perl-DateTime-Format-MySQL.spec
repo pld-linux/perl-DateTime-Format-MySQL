@@ -6,36 +6,37 @@
 %define	pdir	DateTime
 %define	pnam	Format-MySQL
 Summary:	DateTime::Format::MySQL - Parse and format MySQL dates and times
-#Summary(pl.UTF-8):	
+Summary(pl.UTF-8):	DateTime::Format::MySQL - analizowanie i formatowanie dat MySQL-a
 Name:		perl-DateTime-Format-MySQL
 Version:	0.04
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/D/DR/DROLSKY/DateTime-Format-MySQL-0.04.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/D/DR/DROLSKY/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	f52377ecdeb19055ae64037fb1ef530e
 URL:		http://search.cpan.org/dist/DateTime-Format-MySQL/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
-BuildRequires:	perl(DateTime)
-BuildRequires:	perl(DateTime::Format::Builder) >= 0.6
+BuildRequires:	perl-DateTime
+BuildRequires:	perl-DateTime-Format-Builder >= 0.6
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This module understands the formats used by MySQL for its DATE,
-DATETIME, TIME, and TIMESTAMP data types.  It can be used to parse
+DATETIME, TIME and TIMESTAMP data types. It can be used to parse
 these formats in order to create DateTime objects, and it can take a
 DateTime object and produce a string representing it in the MySQL
 format.
 
-
-
-# %description -l pl.UTF-8
-# TODO
+%description -l pl.UTF-8
+Ten moduł rozumie formaty używane przez MySQL-a dla typów danych DATE,
+DATETIME, TIME i TIMESTAMP. Może być używany do analizy tych formatów
+w celu utworzenia obiektów DateTime; może także przyjąć obiekt
+DateTime i utworzyć łańcuch z jego reprezentacją w formacie MySQL-a.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
