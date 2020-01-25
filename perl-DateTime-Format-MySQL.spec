@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	DateTime
 %define	pnam	Format-MySQL
 Summary:	DateTime::Format::MySQL - Parse and format MySQL dates and times
