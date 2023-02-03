@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	tests		# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define	pdir	DateTime
 %define	pnam	Format-MySQL
@@ -8,11 +8,11 @@ Summary:	DateTime::Format::MySQL - Parse and format MySQL dates and times
 Summary(pl.UTF-8):	DateTime::Format::MySQL - analizowanie i formatowanie dat MySQL-a
 Name:		perl-DateTime-Format-MySQL
 Version:	0.06
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/DateTime/%{pdir}-%{pnam}-%{version}.tar.gz
+Source0:	https://www.cpan.org/modules/by-module/DateTime/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	60b84516b5f29e0c639cd1a0f12333d2
 URL:		https://metacpan.org/release/DateTime-Format-MySQL
 BuildRequires:	perl-Module-Build
@@ -21,8 +21,9 @@ BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
 %if %{with tests}
 BuildRequires:	perl-DateTime
-BuildRequires:	perl-DateTime-Format-Builder >= 0.6
+BuildRequires:	perl-DateTime-Format-Builder >= 0.60
 %endif
+Requires:	perl-DateTime-Format-Builder >= 0.60
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
